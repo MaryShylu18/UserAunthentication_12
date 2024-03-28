@@ -12,7 +12,11 @@ import isValidUser from './middlewares/validate.js'
 
 import router from './routes/routes.js'
 
-const uri = "mongodb+srv://FullStack:Conestoga@cluster0.1ua8had.mongodb.net/CostCoUserz?retryWrites=true&w=majority&appName=Cluster0";
+import {}  from 'dotenv/config'
+
+const uri =process.env.MONGO_URI
+
+//const uri = "mongodb+srv://FullStack:Conestoga@cluster0.1ua8had.mongodb.net/CostCoUserz?retryWrites=true&w=majority&appName=Cluster0";
 
 const session_store = MongoStore.create({
     mongoUrl : uri ,
@@ -25,6 +29,7 @@ const session_store = MongoStore.create({
 const app = express()
 
 app.use(express.urlencoded({extended:true}))
+const PORT= process.env.PORT || 8080
 
 app.use(session({
     secret : 'A secret Key to sign the cookie',

@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 
-const uri = "mongodb+srv://FullStack:Conestoga@cluster0.1ua8had.mongodb.net/CostCoUserz?retryWrites=true&w=majority&appName=Cluster0";
+import {}  from 'dotenv/config'
+
+//const uri = "mongodb+srv://shylureddyallam:9EdSAS7ZU5CXM2eK@cluster0.cspcivf.mongodb.net/Hello?retryWrites=true&w=majority"
+const uri =process.env.MONGO_URI
 mongoose.connect(uri).then(()=>console.log("***************************Connected to Mongodb ******************************"))
 .catch((err)=>console.log(`##############Not Connected due to error below ##################\n${err}`))
 
